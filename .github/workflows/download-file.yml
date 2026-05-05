@@ -26,10 +26,67 @@ jobs:
 
       - name: Download APK file
         env:
-          FILE_URL: https://github.com/mirzaaghazadeh/SlipStreamGUI/releases/download/v1.4.4/SlipStream-GUI-Windows-x64-Portable.exe
-          FILE_NAME: SlipStream-GUI-Windows-x64-Portable-v1.4.4.exe
+          FILE_URL: https://github.com/masterking32/MasterDnsVPN/releases/download/v2026.05.04.123456-38b73de/MasterDnsVPN_Client_Windows_AMD64.zip
+          FILE_NAME: MasterDnsVPN_Client_Windows_AMD64-v2026.05.04.123456-38b73de.zip
         run: |
           curl -L $FILE_URL -o files/$FILE_NAME
+
+      - name: Download APK file
+        env:
+          FILE_URL: https://github.com/masterking32/MasterDnsVPN/releases/download/v2026.05.04.123456-38b73de/MasterDnsVPN_Client_Termux_ARM64.zip
+          FILE_NAME: MasterDnsVPN_Client_Termux_ARM64-v2026.05.04.123456-38b73de.zip
+        run: |
+          curl -L $FILE_URL -o files/$FILE_NAME
+
+      - name: Download APK file
+        env:
+          FILE_URL: https://github.com/masterking32/MasterDnsVPN/releases/download/v2026.05.04.123456-38b73de/MasterDnsVPN_Client_Linux_AMD64.zip
+          FILE_NAME: MasterDnsVPN_Client_Linux_AMD64-v2026.05.04.123456-38b73de.zip
+        run: |
+          curl -L $FILE_URL -o files/$FILE_NAME
+                
+      - name: Download APK file
+        env:
+          FILE_URL: https://github.com/anonvector/SlipNet/releases/download/v2.5.3/slipnet-linux-amd64
+          FILE_NAME: slipnet-linux-amd64-v2-5-3
+        run: |
+          curl -L $FILE_URL -o files/$FILE_NAME
+
+      - name: Download APK file
+        env:
+          FILE_URL: https://github.com/anonvector/SlipNet/releases/download/v2.5.3/SlipNet-v2.5.3-full-release-arm64-v8a.apk
+          FILE_NAME: SlipNet-v2.5.3-full-release-arm64-v8a.apk
+        run: |
+          curl -L $FILE_URL -o files/$FILE_NAME
+    
+      - name: Download APK file
+        env:
+          FILE_URL: https://github.com/anonvector/SlipNet/releases/download/v2.5.3/slipnet-windows-amd64.exe
+          FILE_NAME: slipnet-windows-amd64-v2.5.3.exe
+        run: |
+          curl -L $FILE_URL -o files/$FILE_NAME
+
+      - name: Download APK file
+        env:
+          FILE_URL: https://github.com/nullroute1970/StormDNS/releases/download/v2026.04.26.153956-15aedd9/StormDNS_Client_Linux_AMD64.zip
+          FILE_NAME: StormDNS_Client_Linux_AMD64-v2026.04.26.153956-15aedd9.zip
+        run: |
+          curl -L $FILE_URL -o files/$FILE_NAME
+
+      - name: Download APK file
+        env:
+          FILE_URL: https://github.com/nullroute1970/StormDNS/releases/download/v2026.04.26.153956-15aedd9/StormDNS_Client_Termux_ARM64.zip
+          FILE_NAME: StormDNS_Client_Termux_ARM64-v2026.04.26.153956-15aedd9.zip
+        run: |
+          curl -L $FILE_URL -o files/$FILE_NAME
+
+      - name: Download APK file
+        env:
+          FILE_URL: https://github.com/nullroute1970/StormDNS/releases/download/v2026.04.26.153956-15aedd9/StormDNS_Client_Windows_AMD64.zip
+          FILE_NAME: StormDNS_Client_Windows_AMD64-v2026.04.26.153956-15aedd9.zip
+        run: |
+          curl -L $FILE_URL -o files/$FILE_NAME
+
 
       - name: Commit and push changes
         env:
