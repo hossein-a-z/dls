@@ -1,0 +1,40 @@
+name: Download APK and Upload to Repo
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write  # اجازه نوشتن در ریپو
+
+jobs:
+  download-and-upload:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false  # اجازه می‌دهد توکن جدید ست شود
+
+      - name: Setup Git config
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Create files directory
+        run: mkdir -p files
+
+      - name: Download APK file
+        env:
+          FILE_URL: https://github.com/FrankBarretta/LSFG-Android/releases/download/0.1.1-Fix/LSFG-Android.apk
+          FILE_NAME: LSFG.apk
+        run: |
+          curl -L $FILE_URL -o files/$FILE_NAME
+
+      - name: Commit and push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git
+          git add files/$FILE_NAME
+          git diff --cached --quiet || (git commit -m "Add/update $FILE_NAME" && git push origin HEAD:${{ github.ref_name }})
