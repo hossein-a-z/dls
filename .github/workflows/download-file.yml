@@ -51,6 +51,13 @@ jobs:
           FILE_NAME: mhrv-rs-linux-amd64-V1.9.23.tar.gz
         run: |
           curl -L $FILE_URL -o files/$FILE_NAME
+                
+      - name: Download APK file
+        env:
+          FILE_URL: https://github.com/therealaleph/MasterHttpRelayVPN-RUST/releases/download/v1.9.23/mhrv-rs-windows-amd64.zip
+          FILE_NAME: mhrv-rs-windows-amd64-V1.9.23.zip
+        run: |
+          curl -L $FILE_URL -o files/$FILE_NAME
 
       - name: Commit and push changes
         env:
